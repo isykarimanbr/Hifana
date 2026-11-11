@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kunyit Asem Warung Hifana — Pesan via WhatsApp</title>
+  <meta name="description" content="Kunyit asem segar buatan hari ini dari Warung Hifana. Pesan langsung lewat WhatsApp.">
+  <meta name="theme-color" content="#1F2A1E">
+  <meta property="og:title" content="Kunyit Asem Warung Hifana">
+  <meta property="og:description" content="Kunyit asem segar 250 ml, Rp 8.000. Pesan langsung lewat WhatsApp.">
+  <meta property="og:image" content="img/produk.jpg">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="#" class="brand">
+        <img src="img/logo.png" alt="Logo Warung Hifana" width="44" height="44">
+        <span>Warung Hifana</span>
+      </a>
+      <a href="#pesan" class="btn btn-small">Pesan</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Dibuat segar setiap pagi</p>
+          <h1>Kunyit Asem<br>Warung Hifana</h1>
+          <p class="lead">Kunyit, asam jawa, dan gula merah asli. Tanpa pengawet, dalam botol 250 ml yang praktis dibawa.</p>
+          <div class="hero-actions">
+            <a href="#pesan" class="btn">Pesan Sekarang</a>
+            <span class="price-tag">Rp 8.000 <small>/ botol</small></span>
+          </div>
+        </div>
+        <img class="hero-img" src="img/produk.jpg" alt="Botol-botol kunyit asem Warung Hifana" width="900" height="933">
+      </div>
+    </section>
+
+    <section class="wrap features">
+      <div class="feature">
+        <h3>Segar</h3>
+        <p>Diproduksi pagi hari dan diberi tanggal produksi di setiap botol.</p>
+      </div>
+      <div class="feature">
+        <h3>Alami</h3>
+        <p>Tanpa pengawet. Simpan di kulkas dan habiskan dalam ± 3 hari.</p>
+      </div>
+      <div class="feature">
+        <h3>Dekat</h3>
+        <p>Ambil di warung atau diantar gratis untuk area sekitar.</p>
+      </div>
+    </section>
+
+    <section id="pesan" class="wrap order">
+      <div class="order-head">
+        <p class="eyebrow">Form pemesanan</p>
+        <h2>Pesan lewat WhatsApp</h2>
+        <p class="muted">Isi form di bawah, lalu tekan tombol. WhatsApp akan terbuka dengan pesan pesanan yang sudah terisi. Pembayaran tunai atau transfer dikonfirmasi lewat chat.</p>
+      </div>
+
+      <form id="orderForm" class="order-grid" novalidate>
+        <div class="card">
+          <h3 class="card-title">1. Pilih produk</h3>
+          <div id="productList" class="product-list"></div>
+          <p class="hint">Beli <b>10 botol atau lebih</b>: harga reseller <b>Rp 6.500/botol</b>.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">2. Data pemesan</h3>
+          <label class="field">
+            <span>Nama</span>
+            <input type="text" id="nama" name="nama" autocomplete="name" placeholder="Nama kamu" required>
+          </label>
+
+          <fieldset class="field">
+            <legend>Cara terima</legend>
+            <div class="segmented">
+              <label><input type="radio" name="metode" value="ambil" checked><span>Ambil di warung</span></label>
+              <label><input type="radio" name="metode" value="antar"><span>Diantar</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field" id="alamatField" hidden>
+            <span>Alamat pengantaran</span>
+            <textarea id="alamat" name="alamat" rows="3" placeholder="Nama jalan, nomor rumah, RT/RW, patokan"></textarea>
+          </label>
+
+          <label class="field">
+            <span>Tanggal &amp; jam (opsional)</span>
+            <input type="datetime-local" id="waktu" name="waktu">
+          </label>
+
+          <label class="field">
+            <span>Catatan (opsional)</span>
+            <textarea id="catatan" name="catatan" rows="2" placeholder="Misal: kurang manis, untuk acara arisan"></textarea>
+          </label>
+        </div>
+
+        <aside class="card summary" aria-live="polite">
+          <h3 class="card-title">3. Ringkasan</h3>
+          <div id="summaryLines" class="summary-lines"></div>
+          <div class="summary-total">
+            <span>Total</span>
+            <strong id="totalText">Rp 0</strong>
+          </div>
+          <p id="errorText" class="error" role="alert"></p>
+          <button type="submit" class="btn btn-wa">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>
+            Pesan via WhatsApp
+          </button>
+          <p class="muted small">Pesanan dikonfirmasi oleh admin lewat chat. Ongkir area jauh diinformasikan di WhatsApp.</p>
+        </aside>
+      </form>
+    </section>
+
+    <section class="wrap info">
+      <div class="card info-card">
+        <h3>Lokasi &amp; jam buka</h3>
+        <p id="alamatWarung"></p>
+        <p id="jamBuka"></p>
+      </div>
+      <div class="card info-card">
+        <h3>Pesanan acara</h3>
+        <p>Untuk arisan, pengajian, atau rapat kantor, pesan H-1 agar kami siapkan produksi khusus.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p>© <span id="year"></span> Kunyit Asem Warung Hifana</p>
+      <a id="waFooter" href="#" target="_blank" rel="noopener">WhatsApp 0838-7301-9191</a>
+    </div>
+  </footer>
+
+  <a id="waFloat" class="wa-float" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp Warung Hifana">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>
+  </a>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
